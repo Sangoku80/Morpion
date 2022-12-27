@@ -41,10 +41,12 @@ while running:
             pos = pygame.mouse.get_pos()
             if pygame.Rect(game.rect_collisions[rect]).collidepoint(pos):
                 rectangular = game.rect_collisions[rect]
-                x_position = pygame.Surface.get_rect(rectangular)
-                y_position = pygame.Surface.get_rect(rectangular)
+                x_position = game.rect_position_x[rect]
+                y_position = game.rect_position_y[rect]
+                surface = pygame.Surface.blit(rectangular, x_position, y_position)
+                position = surface.get_rect(center=(100, 100))
                 print(f"La case {rect} a été cliquée")
-                draw_circle(x_position, y_position)
+                # draw_circle(position)
                 pygame.time.wait(200)
 
     pygame.display.flip()
