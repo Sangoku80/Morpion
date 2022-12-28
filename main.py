@@ -32,7 +32,7 @@ def draw_circle(x, y):
 def draw_cross(x, y):
     for i in range(1, 3):
         pygame.draw.line(screen, WHITE, (x + 66.5, y - 66.5), (x - 66.5, y + 66.5))
-
+        pygame.draw.line(screen, WHITE, (x + 66.5, y - 66.5), (x - 66.5, y + 66.5))
 
 def if_collide_with_mouse():
     if pygame.mouse.get_pressed()[0]:
