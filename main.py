@@ -29,26 +29,25 @@ def draw_circle(x, y):
     pygame.draw.circle(screen, WHITE, (x, y), 50, 7)
 
 
+def if_collide_with_mouse():
+    if pygame.mouse.get_pressed()[0]:
+
+        for rect in game.rect_collisions:
+            pos = pygame.mouse.get_pos()
+            if pygame.Rect(game.rect_collisions[rect]).collidepoint(pos):
+                x_position = game.rect_position_x[rect]
+                y_position = game.rect_position_y[rect]
+                draw_circle(x_position, y_position)
+                pygame.time.wait(200)
+
+
 game.rect_collide()
 while running:
     # afficher la grille de jeu
     show_grid()
 
     # vérifier si une case a été cliquée
-    if pygame.mouse.get_pressed()[0]:
-
-        for rect in game.rect_collisions:
-            pos = pygame.mouse.get_pos()
-            if pygame.Rect(game.rect_collisions[rect]).collidepoint(pos):
-                rectangular = game.rect_collisions[rect]
-                x_position = game.rect_position_x[rect]
-                y_position = game.rect_position_y[rect]
-                surface = pygame.Surface.blit(rectangular, x_position, y_position)
-                position = surface.get_rect(center=(100, 100))
-                print(f"La case {rect} a été cliquée")
-                # draw_circle(position)
-                pygame.time.wait(200)
-
+    if_collide_with_mouse()
     pygame.display.flip()
 
     for event in pygame.event.get():
