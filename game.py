@@ -15,4 +15,3 @@ class Game:
                 self.rect_position_x[self.num_rect] = 133 * rect + 66.5
                 self.rect_position_y[self.num_rect] = 133 * line + 66.5
         self.num_rect = 0
-        print(self.rect_collisions)
