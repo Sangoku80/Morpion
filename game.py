@@ -6,6 +6,14 @@ class Game:
         self.num_rect = 0
         self.rect_position_x = {}
         self.rect_position_y = {}
+        self.crosses = {}
+        self.circles = {}
+        self.circles_x = {}
+        self.circles_y = {}
+        self.crosses_x = {}
+        self.crosses_y = {}
+        self.win = 0
+        self.i = 0
 
     def rect_collide(self):
         for line in range(0, 3):
